@@ -1,0 +1,25 @@
+[project]
+name = "acme-assist"
+version = "0.1.0"
+description = "ACME Assist: one assistant for everyone at ACME (customers + employees)"
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.28.1",
+    "langchain[google-genai]>=1.4.6",
+    "pytest>=9.1.1",
+    "python-dotenv>=1.2.4",
+    "rich>=15.0.0",
+]
+
+[project.scripts]
+acme = "acme_assist.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["acme_assist"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
